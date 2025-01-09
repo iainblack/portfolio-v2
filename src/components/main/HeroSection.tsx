@@ -15,8 +15,7 @@ const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>((props, ref) =>
                 transition={{ duration: 0.5 }}
             >
                 <div className='flex flex-wrap items-center justify-center'>
-                    <span className='text-5xl md:text-7xl'>Hi, I&apos;m&nbsp;</span>
-                    <span className='text-5xl md:text-7xl text-primary'>Iain Black.</span>
+                    <span className='text-5xl md:text-7xl'>Hi, I&apos;m&nbsp;<span className='text-5xl md:text-7xl text-primary'>Iain Black.</span></span>
                 </div>
             </motion.span>
             <motion.h4
@@ -31,14 +30,14 @@ const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>((props, ref) =>
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300 } }} // No delay on hover
+                whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300 } }}
                 className='flex pt-5'
             >
                 <button
                     onClick={props.scrollNext}
                     className='btn-primary my-4 p-3 w-48 rounded-full'
                 >
-                    Contact Me
+                    Contact
                 </button>
             </motion.div>
         </section>

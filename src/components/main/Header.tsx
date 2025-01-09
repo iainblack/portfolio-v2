@@ -16,8 +16,7 @@ const Header: React.FC = () => {
     const pathname = usePathname();
 
     const links = [
-        { name: 'About', route: '/about' },
-        { name: 'Experience', route: '/experience' },
+        { name: 'About Me', route: '/about' },
         { name: 'Projects', route: '/projects' },
     ];
 
@@ -46,7 +45,7 @@ const Header: React.FC = () => {
             id='header'
             className='fixed w-full z-10 backdrop-blur '
         >
-            <nav className='flex w-full items-center justify-center md:justify-end py-8 px-6 md:px-20'>
+            <nav className='flex w-full items-center justify-center py-8 px-6 md:px-20'>
                 <div className='flex gap-10'>
                     {pathname !== '/' && (
                         <Link href='/'>
