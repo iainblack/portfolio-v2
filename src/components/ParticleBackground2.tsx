@@ -3,9 +3,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { ISourceOptions, MoveDirection } from "@tsparticles/engine";
+import { ISourceOptions } from "@tsparticles/engine";
 
-export const ParticleBackground = () => {
+export const ParticleBackground2 = () => {
     const [init, setInit] = useState(false);
 
     useEffect(() => {
@@ -21,49 +21,7 @@ export const ParticleBackground = () => {
     };
 
     const options = useMemo(() => {
-        const options: ISourceOptions = {
-            autoPlay: true,
-            background: {
-                color: "#0e1111",
-            },
-            fpsLimit: 60,
-            particles: {
-                color: {
-                    value: "#ffffff",
-                },
-                links: {
-                    color: "#ffffff",
-                    distance: 200,
-                    enable: true,
-                    opacity: 0.5,
-                    width: 1,
-                },
-                collisions: {
-                    enable: true,
-                },
-                move: {
-                    direction: MoveDirection.none,
-                    enable: true,
-                    random: false,
-                    speed: 4,
-                    straight: false,
-                },
-                number: {
-                    density: {
-                        enable: true,
-                    },
-                    value: 200,
-                },
-                opacity: {
-                    value: 0.5,
-                },
-                shape: {
-                    type: "circle",
-                },
-                size: {
-                    value: 3,
-                },
-            },
+        const options = {
             interactivity: {
                 events: {
                     onClick: {
@@ -77,7 +35,7 @@ export const ParticleBackground = () => {
                 },
                 modes: {
                     grab: {
-                        distance: 300,
+                        distance: 140,
                         links: {
                             opacity: 1,
                         },
@@ -87,7 +45,53 @@ export const ParticleBackground = () => {
                     },
                 },
             },
-            detectRetina: true,
+            particles: {
+                color: {
+                    value: "#ffffff"
+                },
+                links: {
+                    blink: false,
+                    color: "#ffffff",
+                    consent: false,
+                    distance: 30,
+                    enable: true,
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    outModes: "bounce",
+                    speed: 1
+                },
+                number: {
+                    limit: 0,
+                    value: 200
+                },
+                opacity: {
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        sync: false
+                    },
+                    value: {
+                        min: 0.05,
+                        max: 0.4
+                    }
+                },
+                shape: {
+                    type: "circle"
+                },
+                size: {
+                    value: 1
+                }
+            },
+            background: {
+                color: "#0e1111",
+                image: "",
+                position: "50% 50%",
+                repeat: "no-repeat",
+                size: "cover"
+            }
         } as ISourceOptions;
 
         return options;

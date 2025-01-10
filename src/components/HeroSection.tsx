@@ -1,13 +1,13 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
 interface HeroSectionProps {
     scrollNext: () => void;
 }
 
-const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>((props, ref) => {
+const HeroSection = (props: HeroSectionProps) => {
     return (
-        <section id="hero-section" ref={ref} className='section-padding text-white gap-5 h-screen'>
+        <section id="hero-section" className='flex flex-col items-center justify-center text-white gap-5 h-screen container-padding'>
             <motion.span
                 className='text-center text-5xl md:text-7xl'
                 initial={{ opacity: 0, x: -100 }}
@@ -15,7 +15,7 @@ const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>((props, ref) =>
                 transition={{ duration: 0.5 }}
             >
                 <div className='flex flex-wrap items-center justify-center'>
-                    <span className='text-5xl md:text-7xl'>Hi, I&apos;m&nbsp;<span className='text-5xl md:text-7xl text-primary'>Iain Black.</span></span>
+                    <span className='text-5xl md:text-7xl'>Hi, I&apos;m&nbsp;<span className='text-5xl md:text-7xl text-primary'>Iain.</span></span>
                 </div>
             </motion.span>
             <motion.h4
@@ -29,20 +29,20 @@ const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>((props, ref) =>
             <motion.div
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300 } }}
+                transition={{ duration: 0.5, delay: 0.5 }} // Delay on initial render
                 className='flex pt-5'
             >
-                <button
+                <motion.button
                     onClick={props.scrollNext}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 300 }} // No delay on hover
                     className='btn-primary my-4 p-3 w-48 rounded-full'
                 >
                     Contact
-                </button>
+                </motion.button>
             </motion.div>
         </section>
     );
-});
+};
 
-HeroSection.displayName = 'AboutMeSection';
 export default HeroSection
