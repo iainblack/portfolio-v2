@@ -1,11 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-interface HeroSectionProps {
+interface HeroProps {
     scrollNext: () => void;
 }
 
-const HeroSection = (props: HeroSectionProps) => {
+const Hero = (props: HeroProps) => {
     return (
         <section id="hero-section" className='flex flex-col items-center justify-center text-white gap-5 h-screen container-padding'>
             <motion.span
@@ -45,4 +45,4 @@ const HeroSection = (props: HeroSectionProps) => {
     );
 };
 
-export default HeroSection
+export default Hero

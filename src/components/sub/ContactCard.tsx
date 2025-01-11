@@ -2,12 +2,12 @@ import React, { forwardRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import { AboutPageConstants } from '@/utils/constants';
+import { socialLinks } from '@/utils/constants';
 import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
 import { downloadResume } from '@/utils/functions';
-import { SocialLink } from './WorkExperienceSection';
+import SocialLink from './SocialLink';
 
-const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
+const ContactCard = forwardRef<HTMLDivElement>((props, ref) => {
     return (
         <section
             id="about-me-section"
@@ -72,8 +72,8 @@ function AdditionalInfoSection() {
                         className='btn-primary py-2 px-4 rounded w-full md:max-w-xs'
                         onClick={() => window.open(`mailto:${process.env.NEXT_PUBLIC_EMAIL}`)}
                     >
+                        <FontAwesomeIcon icon={faPaperPlane} className='mr-2' />
                         Send me an email
-                        <FontAwesomeIcon icon={faPaperPlane} className='ml-2' />
                     </motion.button>
                     <motion.button
                         variants={transitionInFromRight}
@@ -81,17 +81,16 @@ function AdditionalInfoSection() {
                         className='btn-primary py-2 px-4 rounded w-full md:max-w-xs'
                         onClick={downloadResume}
                     >
+                        <FontAwesomeIcon icon={faDownload} className='mr-2' />
                         Download my resume
-                        <FontAwesomeIcon icon={faDownload} className='ml-2' />
                     </motion.button>
                 </div>
                 <div className='flex items-center justify-center gap-7'>
-                    {AboutPageConstants.socialLinks.filter((link) => link.title !== 'Email').map((link, index) => (
+                    {socialLinks.filter((link) => link.title !== 'Email').map((link, index) => (
                         <motion.div
                             key={index}
                             variants={transitionInFromRight}
                             whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
-                            onClick={() => window.open('https://www.linkedin.com/in/iain-black-1b1b1b1b1/')}
                         >
                             <SocialLink title={link.title} icon={link.icon} link={link.link} />
                         </motion.div>
@@ -102,5 +101,5 @@ function AdditionalInfoSection() {
     );
 }
 
-ContactSection.displayName = 'ContactSection';
-export default ContactSection;
+ContactCard.displayName = 'ContactCard';
+export default ContactCard;

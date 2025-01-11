@@ -1,9 +1,8 @@
 'use client';
 
 import { useRef } from "react";
-import HeroSection from "@/components/HeroSection";
-import ContactSection from "@/components/ContactSection";
-import { ParticleBackground2 } from "@/components/ParticleBackground2";
+import HeroSection from "@/components/main/Hero";
+import ContactCard from "@/components/sub/ContactCard";
 
 export default function Home() {
   const contactRef = useRef<HTMLDivElement | null>(null);
@@ -16,9 +15,8 @@ export default function Home() {
 
   return (
     <main className="h-full overflow-x-hidden">
-      <ParticleBackground2 />
       <HeroSection scrollNext={() => scrollToSection(contactRef)} />
-      <ContactSection ref={contactRef} />
+      <ContactCard ref={contactRef} />
     </main>
   );
 }

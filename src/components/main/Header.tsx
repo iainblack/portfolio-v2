@@ -4,19 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { faHome, faRectangleList, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { headerLinks } from '@/utils/constants';
 
 const Header: React.FC = () => {
     const pathname = usePathname();
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-
-    const links = [
-        { name: 'Home', route: '/', icon: faHome },
-        { name: 'About', route: '/about', icon: faUserCircle },
-        { name: 'Work', route: '/projects', icon: faRectangleList },
-    ];
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
@@ -35,7 +29,8 @@ const Header: React.FC = () => {
         };
     }, [lastScrollY]);
 
-    const selected = links.find((link) => link.route === pathname);
+
+    const selected = headerLinks.find((link) => link.route === pathname) || headerLinks[0];
 
     return (
         <AnimatePresence>
@@ -50,17 +45,18 @@ const Header: React.FC = () => {
                 <motion.nav
                     initial={false}
                     animate={{ opacity: showHeader ? 1 : 0, y: showHeader ? 0 : -25 }}
-                    className='flex w-screen items-center justify-center py-4 px-6 md:px-20'
+                    className='flex w-screen items-center justify-center py-4 px-5 md:px-20'
                 >
                     <div className='flex gap-10 border border-half border-white py-1 px-1 rounded-2xl text-md backdrop-blur'>
-                        {links.map((link, index: number) => (
+                        {headerLinks.map((link, index: number) => (
                             <Link
                                 key={index}
                                 href={link.route}
-                                className={`flex gap-2 items-center py-1 px-2 ${selected?.route === link.route ? 'bg-secondary rounded-xl border-half' : ''}`}>
+                                className={`flex gap-2 items-center py-1 px-2 hover:bg-[#394040] hover:rounded-xl hover:border-half 
+                                ${selected.route === link.route && 'bg-selected rounded-xl border-half'}`}
+                            >
                                 <FontAwesomeIcon icon={link.icon} className='text-white hover:text-gray-300 transition-colors' />
-                                <button
-                                    className={`text-white hover:text-gray-300 transition-colors`}>
+                                <button className={`text-white hover:text-gray-300 transition-colors text-sm`}>
                                     {link.name}
                                 </button>
                             </Link>
@@ -68,7 +64,7 @@ const Header: React.FC = () => {
                     </div>
                 </motion.nav>
             </motion.header>
-        </AnimatePresence>
+        </AnimatePresence >
     );
 };
 

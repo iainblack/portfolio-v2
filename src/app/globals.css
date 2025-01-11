@@ -2,20 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.text-primary {
-  @apply text-[#1e90ff];
-}
-
-.border-primary {
-  @apply border-[#1e90ff];
-}
-
-.bg-secondary {
+.bg-selected {
   @apply bg-[#232b2b]
 }
 
@@ -28,7 +19,7 @@ body {
 }
 
 .container-padding {
-  @apply px-5
+  @apply px-5 md:px-16 lg:px-20
 }
 
 @media (prefers-color-scheme: dark) {
