@@ -15,6 +15,7 @@ const ProfilePicture = () => {
         >
             <div className='h-52 w-44 items-center justify-center relative rounded-3xl overflow-hidden bg-red'>
                 <Image
+                    priority
                     src='/face.jpeg'
                     alt='Profile Picture'
                     layout='fill'
