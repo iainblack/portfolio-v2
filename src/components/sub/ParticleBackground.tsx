@@ -53,15 +53,18 @@ export default function ParticleBackground() {
                     blink: false,
                     color: "#ffffff",
                     consent: false,
-                    distance: 30,
+                    distance: 50,
                     enable: true,
-                    opacity: 0.4,
+                    opacity: 0.55,
                     width: 1
                 },
                 move: {
                     enable: true,
                     outModes: "bounce",
-                    speed: 1
+                    speed: 1,
+                },
+                collisions: {
+                    enable: true
                 },
                 number: {
                     limit: 0,
@@ -75,14 +78,14 @@ export default function ParticleBackground() {
                     },
                     value: {
                         min: 0.05,
-                        max: 0.4
+                        max: 0.55
                     }
                 },
                 shape: {
                     type: "circle"
                 },
                 size: {
-                    value: 1
+                    value: 2
                 }
             },
             background: {

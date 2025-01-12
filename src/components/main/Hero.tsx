@@ -14,12 +14,12 @@ const Hero = (props: HeroProps) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className='flex flex-wrap items-center justify-center'>
-                    <span className='text-5xl md:text-7xl'>Hi, I&apos;m&nbsp;<span className='text-5xl md:text-7xl text-primary'>Iain.</span></span>
+                <div className={`flex flex-wrap items-center justify-center serif-font`}>
+                    <span className='text-5xl md:text-7xl'>Hi, I&apos;m&nbsp;<span className='text-5xl md:text-7xl text-[#1e90ff]'>Iain.</span></span>
                 </div>
             </motion.span>
             <motion.h4
-                className='text-center text-2xl md:text-5xl'
+                className='text-center text-2xl md:text-5xl light-font'
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}

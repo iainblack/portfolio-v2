@@ -57,11 +57,11 @@ function AdditionalInfoSection() {
             className='flex flex-col h-screen md:h-auto justify-center md:gap-16 md:rounded-xl md:border md:border-white md:p-10 md:backdrop-blur-lg'
         >
             <div className='flex flex-col gap-8 justify-around'>
-                <div className='flex flex-col gap-3'>
+                <div className='flex flex-col gap-2'>
                     <motion.p variants={transitionInFromRight} className='text-4xl w-full text-center md:max-w-xl'>
                         Got an idea for a cool project?
                     </motion.p>
-                    <motion.p variants={transitionInFromRight} className='text-2xl w-full text-center md:max-w-xl'>
+                    <motion.p variants={transitionInFromRight} className='text-2xl w-full text-center md:max-w-xl light-font'>
                         Let&apos;s get in touch!
                     </motion.p>
                 </div>

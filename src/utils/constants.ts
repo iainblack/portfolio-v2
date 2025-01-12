@@ -1,12 +1,12 @@
 import { ProjectCardProps } from "@/components/sub/ProjectCard";
 import { faLinkedin, faGithub, faCss3Alt, faGitAlt, faHtml5, faJs, faNodeJs, faNpm, faReact, faSass } from "@fortawesome/free-brands-svg-icons";
-import { faHome, faRectangleList, faUserCircle, faEarthAmerica } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faRectangleList, faUserCircle, faLocationDot, faExternalLink } from "@fortawesome/free-solid-svg-icons";
 
 
 ///// About Page /////
 
 export const profilePictureBullets = [
-    { title: 'Seattle, WA', icon: faEarthAmerica },
+    { title: 'Seattle, WA', icon: faLocationDot },
 ];
 
 export const techExperienceIcons = [
@@ -24,22 +24,35 @@ export const aboutMeSummary = 'I am a software engineer with experience in web d
 
 export const workExperience = [
     {
-        title: 'Software Engineer',
-        company: 'Amazon',
-        date: '2020 - Present',
-        description: 'Working on the Amazon Prime Video team to deliver high quality video content to customers around the world.',
+        title: 'Software Engineer II',
+        company: 'Accruent',
+        date: 'May 2023 - Present',
+        description: `
+        <div class='text-left flex flex-col gap-3'>
+            <p>One of two developers leading the efforts for a central authentication platform, leveraging Duende Identity Server to support thousands of users across more than 12 applications.</p>
+            <p>Managing and contributing to a large, multi-project codebase with six .NET projects, responsible for designing and deploying production-level features. Developed REST APIs and a React-based responsive user interface to deliver a seamless and scalable user experience.</p>
+            <p>Upholding application security standards by conducting regular scans, implementing fixes, and promoting best practices across the team to ensure a secure codebase.</p>
+        </div>`
+    },
+    {
+        title: 'Senior Software Engineer',
+        company: 'JUNO',
+        date: 'Sep 2022 - April 2023',
+        description: `
+        <div class='text-left flex flex-col gap-3'>
+            <p>Owned foundational development efforts for the social/community aspect of an online learning and community platform. Implemented pagination and virtualization patterns to handle high user traffic.</p>
+            <p>Identified and resolved longstanding bugs under high duress and heavy time constraints. Effectively collaborated with other departments to ensure quality and success.</p>
+        </div>`
     },
     {
         title: 'Software Engineer',
-        company: 'Microsoft',
-        date: '2018 - 2020',
-        description: 'Worked on the Windows team to deliver the best operating system to customers around the world.',
-    },
-    {
-        title: 'Software Engineer',
-        company: 'Google',
-        date: '2016 - 2018',
-        description: 'Worked on the Chrome team to deliver the best web browser to customers around the world.',
+        company: 'Verint',
+        date: 'Jan 2020 - Sep 2022',
+        description: `
+        <div class='text-left flex flex-col gap-3'>
+            <p>Led all development efforts for a delivery team supporting multiple clients with conversational AI software. Frequently met with stakeholders to develop technical requirements of requested features, develop a plan of action, and deliver full-stack solutions before hard deadlines.</p>
+            <p>Led all development efforts for a shared React component library. Refactored existing components to leverage Material-UI’s configurable theme capabilities. Developed new components designed to be generic and re-usable across all clients</p>
+        </div>`
     },
 ];
 
@@ -48,30 +61,37 @@ export const workExperience = [
 
 export const projects: ProjectCardProps[] = [
     {
-        link: 'https://www.google.com',
-        title: 'Project 1',
-        description: 'This is a project description',
+        video: '/RapidQuotesClip.mov',
+        title: 'RapidQuotes (In Development)',
+        description: 'A CPQ and analytics platform for B2B companies who maintenance complex machinery. Features include multi-tenant user management, fully custom CMS, RBAC, Data Insightsp, and more. Built with Next.js 14, .NET 8, Material-UI, Azure Cloud Services, Auth0 and Stripe. ',
     },
     {
-        link: 'https://www.google.com',
-        title: 'Project 2',
-        description: 'This is a project description',
+        video: '/BlogClip.mov',
+        title: `Lou's Blog`,
+        description: 'A blog website integrated with a headless CMS and email subscription service. Built using Next.js 14, Sanity CMS, Tailwind CSS, Firebase Firestore, and SendGrid.',
+        links: [
+            { icon: faGithub, link: 'https://github.com/iainblack/blog-sanity', title: 'Repository' },
+            { icon: faExternalLink, link: 'https://www.healingwithmiracles.com', title: 'Live Site' }
+        ]
     },
     {
-        link: 'https://www.google.com',
-        title: 'Project 3',
-        description: 'This is a project description',
+        video: '/49RaysClip.mov',
+        title: '49 Rays Mobile App',
+        description: 'The 49 Rays of God is a mobile application that serves as a reference to the teachings of a religious group called Namaste Inc. Built with React Native, Expo, and TypeScript. I also managed the deployment and billing set up on behalf of the organization. No personal affiliation.',
+        links: [
+            { icon: faGithub, link: 'https://github.com/iainblack/49Rays', title: 'Repository' },
+            { icon: faExternalLink, link: 'https://apps.apple.com/pl/app/the-49-rays-of-god/id6464680771', title: 'App Store' }
+        ]
     },
     {
-        link: 'https://www.google.com',
-        title: 'Project 4',
-        description: 'This is a project description',
-    },
-    {
-        link: 'https://www.google.com',
-        title: 'Project 5',
-        description: 'This is a project description',
-    },
+        video: '/DitosClip.mov',
+        title: 'Benniditos.com',
+        description: `Bennidito's Pizza is popular neighborhood restaurant located in Spokane, WA. I built them a modern website to bring in more business and create a better customer experience. This web application was built using Next.js and Material- UI.`,
+        links: [
+            { icon: faGithub, link: 'https://github.com/iainblack/Benniditos', title: 'Repository' },
+            { icon: faExternalLink, link: 'https://www.benniditos.com/', title: 'Live Site' }
+        ]
+    }
 ]
 
 ///// Header /////
