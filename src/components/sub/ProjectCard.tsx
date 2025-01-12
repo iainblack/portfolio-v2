@@ -1,7 +1,7 @@
 'use client';
 
 import { useScroll, useTransform, motion } from 'framer-motion';
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SocialLink, { SocialLinkProps } from './SocialLink';
 
 export interface ProjectCardProps {
@@ -13,13 +13,38 @@ export interface ProjectCardProps {
 
 const ProjectCard = (props: ProjectCardProps) => {
     const { title, description, video } = props;
-    const textRef = React.useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLDivElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
     const { scrollYProgress } = useScroll({
         target: textRef,
         offset: ["start end", "start center"]
     });
 
     const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+
+    const [isLoading, setIsLoading] = useState(true);
+    const [showSkeleton, setShowSkeleton] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (isLoading) {
+                setShowSkeleton(true);
+            }
+        }, 200);
+
+        return () => clearTimeout(timer);
+    }, [isLoading]);
+
+    useEffect(() => {
+        if (videoRef.current && videoRef.current.readyState >= 3) {
+            handleLoad();
+        }
+    }, []);
+
+    const handleLoad = () => {
+        setIsLoading(false);
+        setShowSkeleton(false);
+    };
 
     return (
         <section className='flex flex-col items-center justify-center text-white py-5'>
@@ -29,14 +54,22 @@ const ProjectCard = (props: ProjectCardProps) => {
                 className='w-full md:w-3/4 lg:w-3/4 xl:w-1/2 flex flex-col items-center gap-6'
                 style={{ perspective: 1000, scale }}
             >
-                <div className='w-full h-auto rounded-2xl overflow-hidden bg-gray-900'>
+                <div className='relative w-full h-auto rounded-2xl overflow-hidden bg-gray-900'>
+                    {showSkeleton && (
+                        <div className="absolute inset-0 flex justify-center items-center bg-gray-200 animate-pulse">
+                            <div className="w-full h-full bg-gray-300"></div>
+                        </div>
+                    )}
                     <video
+                        ref={videoRef}
                         src={video}
                         title="Project UI"
-                        className='w-full h-full'
+                        className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500 w-full h-full`}
                         loop
                         autoPlay
                         muted
+                        onCanPlay={handleLoad}
+                        onError={() => console.error('Video failed to load')}
                     />
                 </div>
                 <div className='w-full py-4 md:px-4 flex flex-col justify-center gap-4'>

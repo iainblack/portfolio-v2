@@ -2,8 +2,8 @@
 
 import { profilePictureBullets } from '@/utils/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from 'next/image';
 import React from 'react'
+import NextImage from './NextImage';
 
 const ProfilePicture = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
@@ -14,12 +14,12 @@ const ProfilePicture = () => {
             className='flex flex-col w-full justify-center gap-5 py-5'
         >
             <div className='h-52 w-44 items-center justify-center relative rounded-3xl overflow-hidden bg-red'>
-                <Image
+                <NextImage
                     priority
+                    fill
                     src='/face.jpeg'
                     alt='Profile Picture'
-                    layout='fill'
-                    objectFit='contain'
+                    style={{ objectFit: 'cover' }}
                 />
             </div>
             {profilePictureBullets.map((bullet, index) => (
