@@ -63,12 +63,12 @@ const ProjectCard = (props: ProjectCardProps) => {
                     <video
                         ref={videoRef}
                         src={video}
-                        title="Project UI"
-                        className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500 w-full h-full`}
+                        className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500 w-full h-full object-cover`}
                         loop
                         autoPlay
                         muted
                         onCanPlay={handleLoad}
+                        controls={false}
                         onError={() => console.error('Video failed to load')}
                     />
                 </div>
