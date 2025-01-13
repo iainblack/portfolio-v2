@@ -67,6 +67,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                         loop
                         autoPlay
                         muted
+                        playsInline
                         onCanPlay={handleLoad}
                         controls={false}
                         onError={() => console.error('Video failed to load')}

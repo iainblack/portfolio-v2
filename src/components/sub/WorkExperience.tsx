@@ -43,7 +43,7 @@ const WorkExperience = () => {
                         whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
                         onClick={() => window.open(`mailto:${process.env.NEXT_PUBLIC_EMAIL}`)}
                     >
-                        <div className={'border-half border-white rounded-xl py-1 px-2 backdrop-blur-lg'}>
+                        <div className={'border border-white rounded-xl py-1 px-2 backdrop-blur-lg'}>
                             <button className='flex gap-2 items-center'>
                                 <FontAwesomeIcon icon={faEnvelope} />
                                 <span className='text-sm'>Email</span>

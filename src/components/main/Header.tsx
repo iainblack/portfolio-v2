@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     const pathname = usePathname();
     const [showHeader, setShowHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const scrollThreshold = 30;
+    const scrollThreshold = 100;
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
