@@ -54,7 +54,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                 className='w-full md:w-3/4 lg:w-3/4 xl:w-1/2 flex flex-col items-center gap-6'
                 style={{ perspective: 1000, scale }}
             >
-                <div className='relative w-full h-auto rounded-2xl overflow-hidden bg-gray-900'>
+                <div className='relative w-full h-auto rounded-2xl overflow-hidden'>
                     {showSkeleton && (
                         <div className="absolute inset-0 flex justify-center items-center bg-gray-200 animate-pulse">
                             <div className="w-full h-full bg-gray-300"></div>
