@@ -23,17 +23,6 @@ const ProjectCard = (props: ProjectCardProps) => {
     const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
 
     const [isLoading, setIsLoading] = useState(true);
-    const [showSkeleton, setShowSkeleton] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (isLoading) {
-                setShowSkeleton(true);
-            }
-        }, 200);
-
-        return () => clearTimeout(timer);
-    }, [isLoading]);
 
     useEffect(() => {
         if (videoRef.current && videoRef.current.readyState >= 3) {
@@ -43,7 +32,6 @@ const ProjectCard = (props: ProjectCardProps) => {
 
     const handleLoad = () => {
         setIsLoading(false);
-        setShowSkeleton(false);
     };
 
     return (
@@ -55,7 +43,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                 style={{ perspective: 1000, scale }}
             >
                 <div className='relative w-full h-auto rounded-2xl overflow-hidden'>
-                    {showSkeleton && (
+                    {isLoading && (
                         <div className="absolute inset-0 flex justify-center items-center bg-gray-200 animate-pulse">
                             <div className="w-full h-full bg-gray-300"></div>
                         </div>
