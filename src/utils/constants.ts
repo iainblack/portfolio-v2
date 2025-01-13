@@ -20,7 +20,7 @@ export const techExperienceIcons = [
     { title: 'NPM', icon: faNpm },
 ];
 
-export const aboutMeSummary = 'I am a software engineer with experience in web development. I have worked at Amazon, Microsoft, and Google. I am passionate about creating high quality software that is easy to use and maintain.';
+export const aboutMeSummary = `When I'm not coding, you'll probably find me golfing, rooting for my hometown Seattle Mariners, spending time with friends and family, or enjoying the outdoors. My passion is helping people improve their online footprint, which is why I've been steadily building a freelance business. I'm always looking for new opportunities to learn and grow, so if you have a project in mind, I'd love to hear about it!`;
 
 export const workExperience = [
     {
