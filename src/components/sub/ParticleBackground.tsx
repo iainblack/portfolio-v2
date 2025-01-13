@@ -55,7 +55,7 @@ export default function ParticleBackground() {
                     consent: false,
                     distance: 50,
                     enable: true,
-                    opacity: 0.55,
+                    opacity: 0.4,
                     width: 1
                 },
                 move: {
@@ -78,7 +78,7 @@ export default function ParticleBackground() {
                     },
                     value: {
                         min: 0.05,
-                        max: 0.55
+                        max: 0.4
                     }
                 },
                 shape: {

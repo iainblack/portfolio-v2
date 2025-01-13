@@ -20,6 +20,7 @@ const ProfilePicture = () => {
                     src='/face.jpeg'
                     alt='Profile Picture'
                     style={{ objectFit: 'cover' }}
+                    sizes='50vw'
                 />
             </div>
             {profilePictureBullets.map((bullet, index) => (

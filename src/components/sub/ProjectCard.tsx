@@ -39,7 +39,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         if (videoRef.current && videoRef.current.readyState >= 3) {
             handleLoad();
         }
-    }, []);
+    }, [videoRef.current]);
 
     const handleLoad = () => {
         setIsLoading(false);
@@ -73,24 +73,25 @@ const ProjectCard = (props: ProjectCardProps) => {
                         onError={() => console.error('Video failed to load')}
                     />
                 </div>
-                <div className='w-full py-4 md:px-4 flex flex-col justify-center gap-4'>
+                <div className='w-full flex flex-col justify-center gap-4 p-2 backdrop-blur-sm rounded-xl'>
                     <p className='text-4xl serif-font'>{title}</p>
                     <p className='text-lg light-font'>{description}</p>
-                    <div className='flex gap-5'>
-                        {props.links?.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
-                            >
-                                <SocialLink
+                    {props.links &&
+                        <div className='flex gap-5'>
+                            {props.links?.map((item, index) => (
+                                <motion.div
                                     key={index}
-                                    icon={item.icon}
-                                    link={item.link}
-                                    title={item.title}
-                                />
-                            </motion.div>
-                        ))}
-                    </div>
+                                    whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
+                                >
+                                    <SocialLink
+                                        key={index}
+                                        icon={item.icon}
+                                        link={item.link}
+                                        title={item.title}
+                                    />
+                                </motion.div>
+                            ))}
+                        </div>}
                 </div>
             </motion.div>
         </section>

@@ -15,6 +15,13 @@ const Header: React.FC = () => {
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
+
+        if (currentScrollY === 0) {
+            setShowHeader(true);
+            setLastScrollY(currentScrollY);
+            return;
+        }
+
         if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
             // Ignore small scroll movements
             return;
@@ -53,7 +60,7 @@ const Header: React.FC = () => {
                     animate={{ opacity: showHeader ? 1 : 0, y: showHeader ? 0 : -25 }}
                     className='flex w-screen items-center justify-center py-4 px-5 md:px-20'
                 >
-                    <div className='flex gap-10 border border-half border-white py-1 px-1 rounded-2xl text-md backdrop-blur'>
+                    <div className='flex gap-10 border border-half border-white py-1 px-1 rounded-2xl text-md backdrop-blur-sm'>
                         {headerLinks.map((link, index: number) => (
                             <Link
                                 key={index}
@@ -62,7 +69,7 @@ const Header: React.FC = () => {
                                 ${selected.route === link.route && 'bg-selected rounded-xl border-half'}`}
                             >
                                 <FontAwesomeIcon icon={link.icon} className='text-white hover:text-gray-300 transition-colors' />
-                                <button className={`text-white hover:text-gray-300 transition-colors text-sm`}>
+                                <button className={`text-white hover:text-gray-300 transition-colors`}>
                                     {link.name}
                                 </button>
                             </Link>

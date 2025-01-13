@@ -1,3 +1,5 @@
+'use client';
+
 import { aboutMeSummary, socialLinks, workExperience } from '@/utils/constants';
 import { ExperienceCardProps } from '@/utils/interfaces';
 import { faEnvelope, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -43,7 +45,7 @@ const WorkExperience = () => {
                         whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}
                         onClick={() => window.open(`mailto:${process.env.NEXT_PUBLIC_EMAIL}`)}
                     >
-                        <div className={'border border-white rounded-xl py-1 px-2 backdrop-blur-lg'}>
+                        <div className={'border border-white rounded-xl py-1 px-2 backdrop-blur-sm'}>
                             <button className='flex gap-2 items-center'>
                                 <FontAwesomeIcon icon={faEnvelope} />
                                 <span className='text-sm'>Email</span>
@@ -52,11 +54,13 @@ const WorkExperience = () => {
                     </motion.div>
 
                 </div>
-                <p className='text-lg w-full'>{aboutMeSummary}</p>
+                <div className='backdrop-blur-sm rounded-xl p-2'>
+                    <p className='text-lg w-full'>{aboutMeSummary}</p>
+                </div>
             </div>
             <div className='grid grid-cols-1 gap-10 w-full'>
                 <p className='text-6xl w-full serif-font'>Work Experience</p>
-                <div className='grid grid-cols-1 gap-10 w-full'>
+                <div className='grid grid-cols-1 gap-10 w-full backdrop-blur-sm rounded-xl'>
                     {workExperience.map((item, index) => (
                         <ExperienceCard
                             key={index}
@@ -77,7 +81,7 @@ export default WorkExperience
 
 function ExperienceCard({ title, company, date, description }: ExperienceCardProps) {
     return (
-        <div className='flex flex-col justify-center gap-6 w-full backdrop-blur-lg md:backdrop-blur-none p-2 md:p-0 rounded-xl'>
+        <div className='flex flex-col justify-center gap-6 w-full backdrop-blur-sm p-2 rounded-xl'>
             <div className='flex flex-col md:flex-row md:items-end md:justify-between w-full' >
                 <div className='flex flex-col gap-1'>
                     <span className='text-3xl'>{company}</span>

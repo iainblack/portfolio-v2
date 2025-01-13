@@ -1,3 +1,5 @@
+'use client';
+
 import React, { forwardRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +14,7 @@ const ContactCard = forwardRef<HTMLDivElement>((props, ref) => {
         <section
             id="about-me-section"
             ref={ref}
-            className='container-padding flex flex-col items-center justify-center text-white h-screen backdrop-blur-lg md:backdrop-blur-none'>
+            className='container-padding flex flex-col items-center justify-center text-white h-screen backdrop-blur-sm md:backdrop-blur-none'>
             <div className='flex flex-col md:flex-row justify-center w-full items-center gap-6 md:py-12'>
                 <AdditionalInfoSection />
             </div>
@@ -54,7 +56,7 @@ function AdditionalInfoSection() {
             initial="hidden"
             animate={controls}
             variants={secondaryContainerVariants}
-            className='flex flex-col h-screen md:h-auto justify-center md:gap-16 md:rounded-xl md:border md:border-white md:p-10 md:backdrop-blur-lg'
+            className='flex flex-col h-screen md:h-auto justify-center md:gap-16 md:rounded-xl md:border md:border-white md:p-10 md:backdrop-blur-sm'
         >
             <div className='flex flex-col gap-8 justify-around'>
                 <div className='flex flex-col gap-2'>
