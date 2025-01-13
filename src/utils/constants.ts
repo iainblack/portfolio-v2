@@ -63,7 +63,7 @@ export const projects: ProjectCardProps[] = [
     {
         video: '/RapidQuotesClip.mov',
         title: 'RapidQuotes (In Development)',
-        description: 'A CPQ and analytics platform for B2B companies who maintenance complex machinery. Features include multi-tenant user management, fully custom CMS, RBAC, Data Insightsp, and more. Built with Next.js 14, .NET 8, Material-UI, Azure Cloud Services, Auth0 and Stripe. ',
+        description: 'A CPQ and analytics platform for B2B companies who maintenance complex machinery. Features include a custom built CMS, multi-tenant user management with RBAC, Data Insights and Visualizations, and more. Built with Next.js 14, .NET 8, Material-UI, Azure Cloud Services, Auth0 and Stripe. ',
     },
     {
         video: '/BlogClip.mov',
