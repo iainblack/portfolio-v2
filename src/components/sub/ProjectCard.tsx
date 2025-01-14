@@ -23,15 +23,27 @@ const ProjectCard = (props: ProjectCardProps) => {
     const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
 
     const [isLoading, setIsLoading] = useState(true);
+    const [showSkeleton, setShowSkeleton] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (isLoading && videoRef.current && videoRef.current.readyState < 3) {
+                setShowSkeleton(true);
+            }
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, [isLoading]);
 
     useEffect(() => {
         if (videoRef.current && videoRef.current.readyState >= 3) {
             handleLoad();
         }
-    }, [videoRef.current]);
+    }, []);
 
     const handleLoad = () => {
         setIsLoading(false);
+        setShowSkeleton(false);
     };
 
     return (
@@ -43,7 +55,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                 style={{ perspective: 1000, scale }}
             >
                 <div className='relative w-full h-auto rounded-2xl overflow-hidden'>
-                    {isLoading && (
+                    {showSkeleton && (
                         <div className="absolute inset-0 flex justify-center items-center bg-gray-200 animate-pulse">
                             <div className="w-full h-full bg-gray-300"></div>
                         </div>
@@ -51,7 +63,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                     <video
                         ref={videoRef}
                         src={video}
-                        className={`${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500 w-full h-full object-cover`}
+                        className={`w-full h-full object-cover`}
                         loop
                         autoPlay
                         muted
